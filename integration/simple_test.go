@@ -3,13 +3,7 @@ package composeit
 import (
 	"testing"
 
-	"golang.org/x/net/context"
-
-	"github.com/docker/engine-api/client"
-	"github.com/docker/engine-api/types"
-	"github.com/docker/engine-api/types/filters"
 	"github.com/libkermit/compose"
-	"github.com/libkermit/docker"
 )
 
 func TestSimpleProject(t *testing.T) {
@@ -23,13 +17,12 @@ func TestSimpleProject(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	// FIXME(vdemeester) check that a container is running
-	runningContainers, err := findContainersForProject("simple")
+	container, err := project.Container("hello")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(runningContainers) != 1 {
-		t.Fatalf("Expected 1 running container for this project, got %v", runningContainers)
+	if container.Name != "/simple_hello_1" {
+		t.Fatalf("expected name '/simple_hello_1', got %s", container.Name)
 	}
 
 	err = project.Stop()
@@ -96,20 +89,4 @@ func TestProjectContainer(t *testing.T) {
 	if err := project.Stop(); err != nil {
 		t.Fatal(err)
 	}
-}
-
-func findContainersForProject(name string) ([]types.Container, error) {
-	client, err := client.NewEnvClient()
-	if err != nil {
-		return []types.Container{}, err
-	}
-	filterArgs := filters.NewArgs()
-	if filterArgs, err = filters.ParseFlag(docker.KermitLabelFilter, filterArgs); err != nil {
-		return []types.Container{}, err
-	}
-
-	return client.ContainerList(context.Background(), types.ContainerListOptions{
-		All:    true,
-		Filter: filterArgs,
-	})
 }

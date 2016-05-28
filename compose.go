@@ -12,6 +12,7 @@ import (
 	"github.com/docker/engine-api/client"
 	"github.com/docker/engine-api/types"
 	"github.com/docker/engine-api/types/filters"
+	"github.com/docker/libcompose/config"
 	"github.com/docker/libcompose/docker"
 	"github.com/docker/libcompose/project"
 	"github.com/docker/libcompose/project/events"
@@ -45,6 +46,9 @@ func CreateProject(name string, composeFiles ...string) (*Project, error) {
 			ComposeFiles: composeFiles,
 			ProjectName:  name,
 		},
+	}, &config.ParseOptions{
+		Interpolate: true,
+		Validate:    true,
 	})
 	if err != nil {
 		return nil, err
@@ -68,11 +72,12 @@ func CreateProject(name string, composeFiles ...string) (*Project, error) {
 
 // Start creates and starts the compose project.
 func (p *Project) Start() error {
-	err := p.composeProject.Create(options.Create{})
+	ctx := context.Background()
+	err := p.composeProject.Create(ctx, options.Create{})
 	if err != nil {
 		return err
 	}
-	err = p.composeProject.Start()
+	err = p.composeProject.Start(ctx)
 	if err != nil {
 		return err
 	}
@@ -85,14 +90,15 @@ func (p *Project) Start() error {
 // Stop shuts down and clean the project
 func (p *Project) Stop() error {
 	// FIXME(vdemeester) handle timeout
-	err := p.composeProject.Stop(10)
+	ctx := context.Background()
+	err := p.composeProject.Stop(ctx, 10)
 	if err != nil {
 		return err
 	}
 	<-p.stopped
 	close(p.stopped)
 
-	err = p.composeProject.Delete(options.Delete{})
+	err = p.composeProject.Delete(ctx, options.Delete{})
 	if err != nil {
 		return err
 	}
@@ -103,7 +109,7 @@ func (p *Project) Stop() error {
 
 // Scale scale a service up
 func (p *Project) Scale(service string, count int) error {
-	return p.composeProject.Scale(10, map[string]int{
+	return p.composeProject.Scale(context.Background(), 10, map[string]int{
 		service: count,
 	})
 }
@@ -125,20 +131,21 @@ func (p *Project) startListening() {
 
 // Containers lists containers for a given services.
 func (p *Project) Containers(service string) ([]types.ContainerJSON, error) {
+	ctx := context.Background()
 	containers := []types.ContainerJSON{}
 	// Let's use engine-api for now as there is nothing really useful in
 	// libcompose for now.
 	filter := filters.NewArgs()
 	filter.Add("label", "com.docker.compose.project="+p.name)
 	filter.Add("label", "com.docker.compose.service="+service)
-	containerList, err := p.client.ContainerList(context.Background(), types.ContainerListOptions{
+	containerList, err := p.client.ContainerList(ctx, types.ContainerListOptions{
 		Filter: filter,
 	})
 	if err != nil {
 		return containers, err
 	}
 	for _, c := range containerList {
-		container, err := p.client.ContainerInspect(context.Background(), c.ID)
+		container, err := p.client.ContainerInspect(ctx, c.ID)
 		if err != nil {
 			return containers, err
 		}
