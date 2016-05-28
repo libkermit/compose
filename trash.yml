@@ -2,7 +2,7 @@ package: github.com/libkermit/compose
 
 import:
 - package: github.com/libkermit/docker
-  version: 3b5eb2973efff7af33cfb65141deaf4ed25c6d02
+  version: 9dbc412cec331080baee6ff423ddbfdefcc94f9f
 - package: github.com/Azure/go-ansiterm
   version: 388960b655244e76e24c75f48631564eaefade62
 - package: github.com/cloudfoundry-incubator/candiedyaml
@@ -12,7 +12,7 @@ import:
 - package: github.com/docker/docker
   version: 9837ec4da53f15f9120d53a6e1517491ba8b0261
 - package: github.com/docker/engine-api
-  version: fd7f99d354831e7e809386087e7ec3129fdb1520
+  version: c9b5a47a3a6fea97d0a2242307ad25a3331ce03b
 - package: github.com/docker/go-connections
   version: v0.2.0
 - package: github.com/docker/go-units
