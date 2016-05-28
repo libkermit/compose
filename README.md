@@ -1,8 +1,8 @@
 # Libkermit
-[![GoDoc](https://godoc.org/github.com/libkermit/docker?status.png)](https://godoc.org/github.com/libkermit/docker)
-[![Build Status](https://travis-ci.org/libkermit/docker.svg?branch=master)](https://travis-ci.org/libkermit/docker)
-[![Go Report Card](https://goreportcard.com/badge/github.com/libkermit/docker)](https://goreportcard.com/report/github.com/libkermit/docker)
-[![License](https://img.shields.io/github/license/libkermit/docker.svg)]()
+[![GoDoc](https://godoc.org/github.com/libkermit/compose?status.png)](https://godoc.org/github.com/libkermit/compose)
+[![Build Status](https://travis-ci.org/libkermit/compose.svg?branch=master)](https://travis-ci.org/libkermit/compose)
+[![Go Report Card](https://goreportcard.com/badge/github.com/libkermit/compose)](https://goreportcard.com/report/github.com/libkermit/compose)
+[![License](https://img.shields.io/github/license/libkermit/compose.svg)]()
 
 
 > When green is all there is to be<br/>
