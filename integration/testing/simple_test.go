@@ -16,13 +16,9 @@ func TestSimpleProject(t *testing.T) {
 	project := compose.CreateProject(t, "simple", "../assets/simple.yml")
 	project.Start(t)
 
-	// FIXME(vdemeester) check that a container is running
-	runningContainers, err := findContainersForProject("simple")
-	if err != nil {
-		t.Fatal(err)
-	}
-	if len(runningContainers) != 1 {
-		t.Fatalf("Expected 1 running container for this project, got %v", runningContainers)
+	container := project.Container(t, "hello")
+	if container.Name != "/simple_hello_1" {
+		t.Fatalf("expected name '/simple_hello_1', got %s", container.Name)
 	}
 
 	project.Stop(t)
