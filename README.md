@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/libkermit/compose.svg?branch=master)](https://travis-ci.org/libkermit/compose)
 [![Go Report Card](https://goreportcard.com/badge/github.com/libkermit/compose)](https://goreportcard.com/report/github.com/libkermit/compose)
 [![License](https://img.shields.io/github/license/libkermit/compose.svg)]()
+[![codecov](https://codecov.io/gh/libkermit/compose/branch/master/graph/badge.svg)](https://codecov.io/gh/libkermit/compose)
 
 When `libermit` meet with `libcompose`.
 
