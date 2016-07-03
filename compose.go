@@ -17,6 +17,7 @@ import (
 	"github.com/docker/libcompose/project"
 	"github.com/docker/libcompose/project/events"
 	"github.com/docker/libcompose/project/options"
+	d "github.com/libkermit/docker"
 )
 
 // Project holds compose related project attributes
@@ -41,6 +42,8 @@ func CreateProject(name string, composeFiles ...string) (*Project, error) {
 	if err != nil {
 		return nil, err
 	}
+	// FIXME(vdemeester) fix this
+	apiClient.UpdateClientVersion(d.CurrentAPIVersion)
 	composeProject, err := docker.NewProject(&docker.Context{
 		Context: project.Context{
 			ComposeFiles: composeFiles,
