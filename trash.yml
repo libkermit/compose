@@ -2,25 +2,25 @@ package: github.com/libkermit/compose
 
 import:
 - package: github.com/libkermit/docker
-  version: 9dbc412cec331080baee6ff423ddbfdefcc94f9f
+  version: 55e3595409924fcfbb850811e5a7cdbe8960a0b7
 - package: github.com/Azure/go-ansiterm
   version: 388960b655244e76e24c75f48631564eaefade62
 - package: github.com/cloudfoundry-incubator/candiedyaml
   version: 5cef21e2e4f0fd147973b558d4db7395176bcd95
 - package: github.com/docker/distribution
-  version: 467fc068d88aa6610691b7f1a677271a3fac4aac
+  version: 5bbf65499960b184fe8e0f045397375e1a6722b8
 - package: github.com/docker/docker
-  version: 9837ec4da53f15f9120d53a6e1517491ba8b0261
+  version: 534753663161334baba06f13b8efa4cad22b5bc5
 - package: github.com/docker/engine-api
-  version: c9b5a47a3a6fea97d0a2242307ad25a3331ce03b
+  version: 62043eb79d581a32ea849645277023c550732e52
 - package: github.com/docker/go-connections
-  version: v0.2.0
+  version: 990a1a1a70b0da4c4cb70e117971a4f0babfbf1a
 - package: github.com/docker/go-units
-  version: 651fc226e7441360384da338d0fd37f2440ffbe3
+  version: f2d77a61e3c169b43402a0a1e84f06daf29b8190
 - package: github.com/docker/libcompose
-  version: 971805b41da6ed6fa1fa8f69a3758af7aae695f5
+  version: d1876c1d68527a49c0aac22a0b161acc7296b740
 - package: github.com/vdemeester/docker-events
-  version: b308d2e8d639d928c882913bcb4f85b3a84c7a07
+  version: be74d4929ec1ad118df54349fda4b0cba60f849b
 - package: github.com/flynn/go-shlex
   version: 3f9db97f856818214da2e1057f8ad84803971cff
 - package: github.com/gorilla/context
@@ -28,11 +28,11 @@ import:
 - package: github.com/gorilla/mux
   version: e444e69cbd2e2e3e0749a2f3c717cec491552bbf
 - package: github.com/Microsoft/go-winio
-  version: 9e2895e5f6c3f16473b91d37fae6e89990a4520c
+  version: v0.3.0
 - package: github.com/opencontainers/runc
-  version: 2441732d6fcc0fb0a542671a4372e0c7bc99c19e
+  version: cc29e3dded8e27ba8f65738f40d251c885030a28
 - package: github.com/Sirupsen/logrus
-  version: v0.9.0
+  version: v0.10.0
 - package: github.com/xeipuuv/gojsonpointer
   version: e0fe6f68307607d540ed8eac07a342c33fa1b54a
 - package: github.com/xeipuuv/gojsonreference
@@ -40,6 +40,7 @@ import:
 - package: github.com/xeipuuv/gojsonschema
   version: ac452913faa25c08bb78810d3e6f88b8a39f8f25
 - package: golang.org/x/net
-  version: 4876518f9e71663000c348837735820161a42df7
+  version: 2beffdc2e92c8a3027590f898fe88f69af48a3f8
+  repo:    https://github.com/tonistiigi/net.git
 - package: golang.org/x/sys
-  version: 320cb01ddbbf0473674c2585f9b6e245721de355
+  version: eb2c74142fd19a79b3f237334c7384d5167b1b46
