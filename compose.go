@@ -167,5 +167,8 @@ func (p *Project) Container(service string) (types.ContainerJSON, error) {
 	if len(containers) > 1 {
 		return types.ContainerJSON{}, fmt.Errorf("More than one container are running for '%s' service", service)
 	}
+	if len(containers) == 0 {
+		return types.ContainerJSON{}, fmt.Errorf("No container found for '%s' service", service)
+	}
 	return containers[0], nil
 }
