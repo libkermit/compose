@@ -44,3 +44,5 @@ import:
   repo:    https://github.com/tonistiigi/net.git
 - package: golang.org/x/sys
   version: eb2c74142fd19a79b3f237334c7384d5167b1b46
+- package: github.com/go-check/check
+  version: 11d3bc7aa68e238947792f30573146a3231fc0f1
