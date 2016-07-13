@@ -3,13 +3,7 @@ package composeit
 import (
 	"testing"
 
-	"golang.org/x/net/context"
-
-	"github.com/docker/engine-api/client"
-	"github.com/docker/engine-api/types"
-	"github.com/docker/engine-api/types/filters"
 	compose "github.com/libkermit/compose/testing"
-	"github.com/libkermit/docker"
 )
 
 func TestSimpleProject(t *testing.T) {
@@ -22,20 +16,4 @@ func TestSimpleProject(t *testing.T) {
 	}
 
 	project.Stop(t)
-}
-
-func findContainersForProject(name string) ([]types.Container, error) {
-	client, err := client.NewEnvClient()
-	if err != nil {
-		return []types.Container{}, err
-	}
-	filterArgs := filters.NewArgs()
-	if filterArgs, err = filters.ParseFlag(docker.KermitLabelFilter, filterArgs); err != nil {
-		return []types.Container{}, err
-	}
-
-	return client.ContainerList(context.Background(), types.ContainerListOptions{
-		All:    true,
-		Filter: filterArgs,
-	})
 }

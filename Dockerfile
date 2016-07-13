@@ -10,7 +10,7 @@ RUN go get golang.org/x/tools/cmd/cover \
     && go get github.com/rancher/trash 
 
 # Which docker version to test on and what default one to use
-ENV DOCKER_VERSIONS 1.10.3 1.11.0
+ENV DOCKER_VERSIONS 1.10.3 1.11.2
 ENV DEFAULT_DOCKER_VERSION 1.10.3
 
 # Download docker
