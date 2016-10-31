@@ -5,7 +5,7 @@ package check
 import (
 	"github.com/go-check/check"
 
-	"github.com/docker/engine-api/types"
+	"github.com/docker/docker/api/types"
 	"github.com/libkermit/compose"
 )
 

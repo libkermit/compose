@@ -2,25 +2,21 @@ package: github.com/libkermit/compose
 
 import:
 - package: github.com/libkermit/docker
-  version: 55e3595409924fcfbb850811e5a7cdbe8960a0b7
+  version: 4585c8ba51a219e3c8df6b9d355438e4d540fe70
 - package: github.com/Azure/go-ansiterm
   version: 388960b655244e76e24c75f48631564eaefade62
-- package: github.com/cloudfoundry-incubator/candiedyaml
-  version: 5cef21e2e4f0fd147973b558d4db7395176bcd95
+- package: gopkg.in/yaml.v2
+  version: e4d366fc3c7938e2958e662b4258c7a89e1f0e3e
 - package: github.com/docker/distribution
-  version: 5bbf65499960b184fe8e0f045397375e1a6722b8
+  version: fbb70dc3a14ca65cdac3aaf5e5122b03b42f6fbc
 - package: github.com/docker/docker
-  version: 534753663161334baba06f13b8efa4cad22b5bc5
-- package: github.com/docker/engine-api
-  version: 62043eb79d581a32ea849645277023c550732e52
+  version: 17aaa0890a7f53cbd9c8806a93de73898ea92813
 - package: github.com/docker/go-connections
-  version: 990a1a1a70b0da4c4cb70e117971a4f0babfbf1a
+  version: 1494b6df4050e60923d68cd8cc6a19e7af9f1c01
 - package: github.com/docker/go-units
-  version: f2d77a61e3c169b43402a0a1e84f06daf29b8190
+  version: 8a7beacffa3009a9ac66bad506b18ffdd110cf97
 - package: github.com/docker/libcompose
-  version: d1876c1d68527a49c0aac22a0b161acc7296b740
-- package: github.com/vdemeester/docker-events
-  version: be74d4929ec1ad118df54349fda4b0cba60f849b
+  version: 12a17e3d4d0a4d9c3e929fdc1bd8d8f121a0a840
 - package: github.com/flynn/go-shlex
   version: 3f9db97f856818214da2e1057f8ad84803971cff
 - package: github.com/gorilla/context
@@ -30,7 +26,7 @@ import:
 - package: github.com/Microsoft/go-winio
   version: v0.3.0
 - package: github.com/opencontainers/runc
-  version: cc29e3dded8e27ba8f65738f40d251c885030a28
+  version: 02f8fa7863dd3f82909a73e2061897828460d52f
 - package: github.com/Sirupsen/logrus
   version: v0.10.0
 - package: github.com/xeipuuv/gojsonpointer
@@ -46,3 +42,5 @@ import:
   version: eb2c74142fd19a79b3f237334c7384d5167b1b46
 - package: github.com/go-check/check
   version: 11d3bc7aa68e238947792f30573146a3231fc0f1
+- package: github.com/pkg/errors
+  version: 248dadf4e9068a0b3e79f02ed0a610d935de5302
