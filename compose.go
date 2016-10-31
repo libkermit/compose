@@ -9,11 +9,12 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/docker/engine-api/client"
-	"github.com/docker/engine-api/types"
-	"github.com/docker/engine-api/types/filters"
+	"github.com/docker/docker/api/types"
+	"github.com/docker/docker/api/types/filters"
+	"github.com/docker/docker/client"
 	"github.com/docker/libcompose/config"
 	"github.com/docker/libcompose/docker"
+	"github.com/docker/libcompose/docker/ctx"
 	"github.com/docker/libcompose/project"
 	"github.com/docker/libcompose/project/events"
 	"github.com/docker/libcompose/project/options"
@@ -44,7 +45,7 @@ func CreateProject(name string, composeFiles ...string) (*Project, error) {
 	}
 	// FIXME(vdemeester) fix this
 	apiClient.UpdateClientVersion(d.CurrentAPIVersion)
-	composeProject, err := docker.NewProject(&docker.Context{
+	composeProject, err := docker.NewProject(&ctx.Context{
 		Context: project.Context{
 			ComposeFiles: composeFiles,
 			ProjectName:  name,
