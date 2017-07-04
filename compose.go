@@ -143,7 +143,7 @@ func (p *Project) Containers(service string) ([]types.ContainerJSON, error) {
 	filter.Add("label", "com.docker.compose.project="+p.name)
 	filter.Add("label", "com.docker.compose.service="+service)
 	containerList, err := p.client.ContainerList(ctx, types.ContainerListOptions{
-		Filter: filter,
+		Filters: filter,
 	})
 	if err != nil {
 		return containers, err
