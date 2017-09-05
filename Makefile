@@ -8,8 +8,8 @@ LIBKERMIT_ENVS := \
 BIND_DIR := "dist"
 LIBKERMIT_MOUNT := -v "$(CURDIR)/$(BIND_DIR):/go/src/github.com/libkermit/compose/$(BIND_DIR)"
 
-GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD 2>/dev/null)
-LIBKERMIT_DEV_IMAGE := libkermit-compose-dev$(if $(GIT_BRANCH),:$(GIT_BRANCH))
+GIT_BRANCH := $(subst heads/,,$(shell git rev-parse --abbrev-ref HEAD 2>/dev/null))
+LIBKERMIT_DEV_IMAGE := libkermit-compose-dev$(if $(GIT_BRANCH),:$(subst /,-,$(GIT_BRANCH)))
 REPONAME := $(shell echo $(REPO) | tr '[:upper:]' '[:lower:]')
 
 DAEMON_VERSION := $(if $(DAEMON_VERSION),$(DAEMON_VERSION),"default")
