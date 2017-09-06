@@ -27,15 +27,15 @@ func CreateProject(t *testing.T, name string, composeFiles ...string) *Project {
 }
 
 // Start creates and starts the compose project.
-func (p *Project) Start(t *testing.T) {
-	if err := p.project.Start(); err != nil {
+func (p *Project) Start(t *testing.T, services ...string) {
+	if err := p.project.Start(services...); err != nil {
 		t.Fatalf("error while starting compose project: %s", err.Error())
 	}
 }
 
 // Stop shuts down and clean the project
-func (p *Project) Stop(t *testing.T) {
-	if err := p.project.Stop(); err != nil {
+func (p *Project) Stop(t *testing.T, services ...string) {
+	if err := p.project.Stop(services...); err != nil {
 		t.Fatalf("error while stopping compose project: %s", err.Error())
 	}
 }
@@ -64,4 +64,14 @@ func (p *Project) Container(t *testing.T, service string) types.ContainerJSON {
 		t.Fatalf("error while getting the container for service '%s'", service)
 	}
 	return container
+}
+
+// NoContainer check is there is no container for the service given
+// It fails if there one or more containers or if the error returned
+// does not indicate an empty container list
+func (p *Project) NoContainer(t *testing.T, service string) {
+	validErr := "No container found for '" + service + "' service"
+	if _, err := p.project.Container(service); err == nil || err.Error() != validErr {
+		t.Fatalf("error while getting the container for service '%s'", service)
+	}
 }
