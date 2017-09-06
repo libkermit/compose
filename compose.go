@@ -85,6 +85,7 @@ func (p *Project) Start(services ...string) error {
 	return p.UnPause(services...)
 }
 
+// Unpause only starts created services which are stopped.
 func (p *Project) UnPause(services ...string) error {
 	ctx := context.Background()
 	err := p.composeProject.Start(ctx, services...)
@@ -97,6 +98,7 @@ func (p *Project) UnPause(services ...string) error {
 	return nil
 }
 
+// Pause only stop services without delete them.
 func (p *Project) Pause(services ...string) error {
 	ctx := context.Background()
 	err := p.composeProject.Stop(ctx, 10, services...)
