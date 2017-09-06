@@ -82,11 +82,11 @@ func (p *Project) Start(services ...string) error {
 		return err
 	}
 
-	return p.UnPause(services...)
+	return p.StartOnly(services...)
 }
 
-// UnPause only starts created services which are stopped.
-func (p *Project) UnPause(services ...string) error {
+// StartOnly only starts created services which are stopped.
+func (p *Project) StartOnly(services ...string) error {
 	ctx := context.Background()
 	err := p.composeProject.Start(ctx, services...)
 	if err != nil {
@@ -98,8 +98,8 @@ func (p *Project) UnPause(services ...string) error {
 	return nil
 }
 
-// Pause only stop services without delete them.
-func (p *Project) Pause(services ...string) error {
+// StopOnly only stop services without delete them.
+func (p *Project) StopOnly(services ...string) error {
 	ctx := context.Background()
 	err := p.composeProject.Stop(ctx, 10, services...)
 	if err != nil {
@@ -113,7 +113,7 @@ func (p *Project) Pause(services ...string) error {
 // Stop shuts down and clean the project
 func (p *Project) Stop(services ...string) error {
 	// FIXME(vdemeester) handle timeout
-	err := p.Pause(services...)
+	err := p.StopOnly(services...)
 	if err != nil {
 		return err
 	}
