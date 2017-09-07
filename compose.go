@@ -149,7 +149,7 @@ func (p *Project) Stop(services ...string) error {
 // Check if containers exist in the desirated state for the given services
 func (p *Project) existContainers(stateFiltered project.State, services ...string) (bool, error) {
 	existingContainers := false
-	var err error = nil
+	var err error
 	containersFound, err := p.composeProject.Containers(context.Background(), project.Filter{stateFiltered})
 	if err == nil && containersFound != nil && len(containersFound) > 0 {
 		existingContainers = true
