@@ -26,4 +26,10 @@ func (s *CheckServicesSuite) TestServicesProject(c *check.C) {
 
 	project.Stop(c, "hello")
 
+	project.Start(c)
+
+	container = project.Container(c, "other")
+	c.Assert(container.Name, check.Equals, "/services_other_1")
+
+	project.Stop(c)
 }
