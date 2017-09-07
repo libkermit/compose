@@ -18,5 +18,15 @@ func TestServicesProject(t *testing.T) {
 	//"No container found for '%s' service
 	project.NoContainer(t, "other")
 
-	project.Stop(t, "hello")
+	project.Start(t, "other")
+
+	container = project.Container(t, "other")
+	if container.Name != "/services_other_1" {
+		t.Fatalf("expected name '/services_other_1', got %s", container.Name)
+	}
+
+	project.Stop(t, "hello", "other")
+
+	project.Start(t)
+	project.Stop(t)
 }
