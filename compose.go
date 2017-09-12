@@ -86,7 +86,7 @@ func (p *Project) Start(services ...string) error {
 		*p = *newProject
 	}
 	ctx := context.Background()
-	err := p.composeProject.Create(ctx, options.Create{})
+	err := p.composeProject.Create(ctx, options.Create{}, services...)
 	if err != nil {
 		return err
 	}
