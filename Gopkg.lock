@@ -42,7 +42,7 @@
   branch = "master"
   name = "github.com/docker/docker"
   packages = ["api","api/types","api/types/blkiodev","api/types/container","api/types/events","api/types/filters","api/types/image","api/types/mount","api/types/network","api/types/registry","api/types/strslice","api/types/swarm","api/types/swarm/runtime","api/types/time","api/types/versions","api/types/volume","builder/dockerignore","builder/remotecontext/git","client","pkg/archive","pkg/fileutils","pkg/homedir","pkg/idtools","pkg/ioutils","pkg/jsonmessage","pkg/longpath","pkg/mount","pkg/pools","pkg/progress","pkg/stdcopy","pkg/streamformatter","pkg/stringid","pkg/symlink","pkg/system","pkg/tarsum","pkg/term","pkg/term/windows","pkg/urlutil","registry","registry/resumable"]
-  revision = "ce452fb72ffcdb7605ce98bde9302238f47c63c5"
+  revision = "84b1f813a4ada3c19eea84f9e98c56c0768d9da2"
 
 [[projects]]
   name = "github.com/docker/docker-credential-helpers"
@@ -103,7 +103,7 @@
   branch = "master"
   name = "github.com/libkermit/docker"
   packages = ["."]
-  revision = "50e88d47fcc3565f1ce59918f62fa2c6764de56a"
+  revision = "e6674d32b80712b563ed8a0187af2bc93448b82f"
 
 [[projects]]
   name = "github.com/opencontainers/go-digest"
@@ -136,22 +136,19 @@
   version = "v1.0.3"
 
 [[projects]]
-  branch = "master"
   name = "github.com/xeipuuv/gojsonpointer"
   packages = ["."]
-  revision = "6fe8760cad3569743d51ddbb243b26f8456742dc"
+  revision = "e0fe6f68307607d540ed8eac07a342c33fa1b54a"
 
 [[projects]]
-  branch = "master"
   name = "github.com/xeipuuv/gojsonreference"
   packages = ["."]
   revision = "e02fc20de94c78484cd5ffb007f8af96be030a45"
 
 [[projects]]
-  branch = "master"
   name = "github.com/xeipuuv/gojsonschema"
   packages = ["."]
-  revision = "212d8a0df7acfab8bdd190a7a69f0ab7376edcc8"
+  revision = "93e72a773fade158921402d6a24c819b48aba29d"
 
 [[projects]]
   branch = "master"
@@ -186,6 +183,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "096c4f83d62b8aac967b9587709029821a45c7065f72242145f774c1f611db20"
+  inputs-digest = "4e4d05297558502f505840369b573cacefbcc4edef4ea7247d93bb51351729de"
   solver-name = "gps-cdcl"
   solver-version = 1

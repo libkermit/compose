@@ -37,11 +37,11 @@ func TestProjectContainers(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if err := project.Start(); err != nil {
+	if err = project.Start(); err != nil {
 		t.Fatal(err)
 	}
 
-	if err := project.Scale("hello", 2); err != nil {
+	if err = project.Scale("hello", 2); err != nil {
 		t.Fatal(err)
 	}
 
@@ -65,7 +65,7 @@ func TestProjectContainer(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if err := project.Start(); err != nil {
+	if err = project.Start(); err != nil {
 		t.Fatal(err)
 	}
 
@@ -77,7 +77,7 @@ func TestProjectContainer(t *testing.T) {
 		t.Fatalf("expected name '/simple_hello_1', got %s", container.Name)
 	}
 
-	if err := project.Scale("hello", 2); err != nil {
+	if err = project.Scale("hello", 2); err != nil {
 		t.Fatal(err)
 	}
 
