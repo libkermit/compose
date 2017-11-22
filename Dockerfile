@@ -1,4 +1,4 @@
-FROM golang:1.8.3
+FROM golang:1.9.2
 
 RUN apt-get update && apt-get install -y \
     iptables build-essential \
@@ -7,12 +7,9 @@ RUN apt-get update && apt-get install -y \
 # Install build dependencies
 RUN go get golang.org/x/tools/cmd/cover \
     && go get github.com/golang/lint/golint \
-    && go get github.com/rancher/trash
+    && go get github.com/golang/dep/cmd/dep
 
 WORKDIR /go/src/github.com/libkermit/compose
-
-COPY trash.yml .
-RUN trash -k
 
 # Which docker version to test on and what default one to use
 ENV DOCKER_VERSION 17.03.2
@@ -26,4 +23,4 @@ RUN mkdir -p /usr/local/bin \
 ENTRYPOINT ["hack/dind"]
 
 COPY . /go/src/github.com/libkermit/compose
-RUN trash
+RUN dep ensure
